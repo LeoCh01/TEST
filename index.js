@@ -1,8 +1,17 @@
 const express = require("express");
 const csv = require("csv-parser");
 const fs = require("fs");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 const port = 3000;
+
+app.use(
+  bodyParser.json(),
+  cors({
+    origin: "*",
+  })
+);
 
 // Define your API routes here
 app.get("/hi", (req, res) => {
